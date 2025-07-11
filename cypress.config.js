@@ -5,16 +5,18 @@ const addCucumberPreprocessorPlugin = require("@badeball/cypress-cucumber-prepro
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: 'https://the-internet.herokuapp.com',
+    baseUrl: 'https://stg-luz-viva-front.vercel.app',
     specPattern: "cypress/e2e/features/**/*.feature",
     supportFile: 'cypress/support/e2e.js',
 
     async setupNodeEvents(on, config) {
       config.env = {
         ...config.env,
+      /*
         cucumber: {
           nonGlobalStepDefinitions: true
         }
+      */
       };
 
       await addCucumberPreprocessorPlugin(on, config);
